@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="bootstrap-5.3.3-dist/bootstrap-5.3.3-dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="style/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <section id="addProducts">
+      <div class="container">
+        <div class="row">
+          <div class="title mx-auto text-center p-3">
+            <h1>ERP System</h1>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              list="nameOfProducts"
+              type="text"
+              class="form-control"
+              id="pName"
+              placeholder="name@example.com"
+            />
+            <datalist id="nameOfProducts">
+              <option value="Phone">Phone</option>
+              <option value="TV">TV</option>
+              <option value="Watch">Watch</option>
+              <option value="Remote">Remote</option>
+              <option value="Labtob">Labtob</option>
+            </datalist>
+            <label for="pName">Product Name</label>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text">$</span>
+            <span class="input-group-text">0.00</span>
+            <input
+              type="number"
+              class="form-control"
+              id="pPrice"
+              placeholder="Product Price"
+              aria-label="Dollar amount (with dot and two decimal places)"
+              min="0"
+            />
+          </div>
+          <div class="mb-3">
+            <textarea
+              class="form-control"
+              id="pDescrption"
+              rows="3"
+              placeholder="Product Descrption"
+            ></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="pImges" class="form-label">Choose Image</label>
+            <input class="form-control" type="file" id="pImges" multiple />
+          </div>
+          <div class="d-grid gap-2 col-6 mx-auto">
+            <button
+              class="btn btn-outline-success"
+              type="button"
+              id="addProduct"
+              onclick="addProductToArray();"
+            >
+              Add Product
+            </button>
+            <button
+              class="btn btn-outline-dark d-none"
+              type="button"
+              id="updateProducts"
+              onclick="updateProductsData();"
+            >
+              Update Products
+            </button>
+            <button
+              class="btn btn-outline-danger"
+              type="button"
+              id="restAllProducts"
+              onclick="rest();"
+            >
+              Rest
+            </button>
+          </div>
+        </div>
+        <div class="form-floating mb-3 mt-5">
+          <input
+            list="searchOfProduct"
+            type="text"
+            class="form-control"
+            id="searchProduct"
+            placeholder="name@example.com"
+            oninput="searchProduct()"
+          />
+          <datalist id="searchOfProduct">
+            <option value="Phone">Phone</option>
+            <option value="TV">TV</option>
+            <option value="Watch">Watch</option>
+            <option value="Remote">Remote</option>
+            <option value="Labtob">Labtob</option>
+          </datalist>
+          <label for="searchProduct">Search Product</label>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row gy-4 mt-3 pb-2" id="insertItems"></div>
+      </div>
+    </section>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="modalValdtion"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Complete Data
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="warringMaseege"></div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="bootstrap-5.3.3-dist/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
