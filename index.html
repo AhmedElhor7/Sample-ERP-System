@@ -14,6 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="style/Style.css">
     <title>Document</title>
   </head>
   <body>
@@ -29,6 +30,7 @@
               type="text"
               class="form-control"
               id="pName"
+              onfocusout="validationInputRegex(this)"
               placeholder="name@example.com"
             />
             <datalist id="nameOfProducts">
@@ -39,6 +41,7 @@
               <option value="Labtob">Labtob</option>
             </datalist>
             <label for="pName">Product Name</label>
+            <span class="py-1 text-danger d-none" id="messagePnameValid">Please Write Vaild Name Or Choose From Drop Down List</span>
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text">$</span>
@@ -47,23 +50,28 @@
               type="number"
               class="form-control"
               id="pPrice"
+              onfocusout="validationInputRegex(this)"
               placeholder="Product Price"
               aria-label="Dollar amount (with dot and two decimal places)"
               min="0"
             />
           </div>
+          <span class="py-1 text-danger d-none" id="messagePriceValid">Please Write Vaild Price Range 6000 To 10000</span>
           <div class="mb-3">
             <textarea
               class="form-control"
               id="pDescrption"
+              onfocusout="validationInputRegex(this)"
               rows="3"
               placeholder="Product Descrption"
             ></textarea>
+            <span class="py-1 text-danger d-none" id="messageDescrptionValid">Please Write Vaild Descrption</span>
           </div>
           <div class="mb-3">
             <label for="pImges" class="form-label">Choose Image</label>
-            <input class="form-control" type="file" id="pImges" multiple />
+            <input class="form-control" type="file" id="pImges" multiple accept=".jpg" />
           </div>
+          
           <div class="d-grid gap-2 col-6 mx-auto">
             <button
               class="btn btn-outline-success"
@@ -93,20 +101,12 @@
         </div>
         <div class="form-floating mb-3 mt-5">
           <input
-            list="searchOfProduct"
             type="text"
             class="form-control"
             id="searchProduct"
             placeholder="name@example.com"
             oninput="searchProduct()"
           />
-          <datalist id="searchOfProduct">
-            <option value="Phone">Phone</option>
-            <option value="TV">TV</option>
-            <option value="Watch">Watch</option>
-            <option value="Remote">Remote</option>
-            <option value="Labtob">Labtob</option>
-          </datalist>
           <label for="searchProduct">Search Product</label>
         </div>
       </div>
